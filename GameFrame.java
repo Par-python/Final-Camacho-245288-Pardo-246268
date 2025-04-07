@@ -1,0 +1,73 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class GameFrame {
+    private JFrame frame;
+    private GameCanvas gamecanvas;
+    private JPanel cp;
+
+    public GameFrame() {
+        frame = new JFrame();
+        gamecanvas = new GameCanvas(); 
+        cp = (JPanel) frame.getContentPane();
+        cp.setFocusable(true);
+    }
+
+    public void setUpGUI()  {
+        frame.setTitle("Final Project Camacho 245288 - Pardo 246268");
+        frame.setLayout(new BorderLayout());
+        frame.add(gamecanvas, BorderLayout.CENTER);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+
+    public void addKeyBindings(){
+        ActionMap am = cp.getActionMap();
+        InputMap im = cp.getInputMap();
+
+        AbstractAction speedUp = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                System.out.println("+1 speed");
+            
+            }
+        };
+
+        AbstractAction speedDown = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                System.out.println("-1 speed");
+            }
+            
+        };
+
+
+        AbstractAction gearUp = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                System.out.println("+1 gear");
+            
+            }
+        };
+
+        AbstractAction gearDown = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                System.out.println("-1 gear");
+            }
+            
+        };
+
+            am.put("sUp", speedUp);
+            am.put("sDown",speedDown );
+            am.put("gUp", gearUp);
+            am.put("gDown",gearDown );
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,0,false), "sUp");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_CONTROL,0,false), "sDown");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q,0,false), "gUp");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_E,0,false), "gDown");
+            
+    }
+}
