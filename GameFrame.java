@@ -6,12 +6,14 @@ public class GameFrame {
     private JFrame frame;
     private GameCanvas gamecanvas;
     private JPanel cp;
+    private Player player; 
 
     public GameFrame() {
         frame = new JFrame();
         gamecanvas = new GameCanvas(); 
         cp = (JPanel) frame.getContentPane();
         cp.setFocusable(true);
+        player = new Player(20, 20, 0, "V8 Engine", 0, 0, false);
     }
 
     public void setUpGUI()  {
@@ -30,32 +32,32 @@ public class GameFrame {
         AbstractAction speedUp = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                System.out.println("+1 speed");
-            
+               player.addSpeed();
+               System.out.println(player.getSpeed());
             }
         };
 
         AbstractAction speedDown = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                System.out.println("-1 speed");
-            }
-            
+                player.addBreakPressure();
+                System.out.println(player.getSpeed());
+            }       
         };
-
 
         AbstractAction gearUp = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                System.out.println("+1 gear");
-            
+                player.shiftUp();
+                System.out.println(player.getGear());
             }
         };
 
         AbstractAction gearDown = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                System.out.println("-1 gear");
+                player.shiftDown();
+                System.out.println(player.getGear());
             }
             
         };
@@ -65,7 +67,7 @@ public class GameFrame {
             am.put("gUp", gearUp);
             am.put("gDown",gearDown );
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,0,false), "sUp");
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_CONTROL,0,false), "sDown");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_S,0,false), "sDown");
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q,0,false), "gUp");
             im.put(KeyStroke.getKeyStroke(KeyEvent.VK_E,0,false), "gDown");
             
