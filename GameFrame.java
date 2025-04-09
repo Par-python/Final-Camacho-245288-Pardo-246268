@@ -13,7 +13,7 @@ public class GameFrame {
         gamecanvas = new GameCanvas(); 
         cp = (JPanel) frame.getContentPane();
         cp.setFocusable(true);
-        player = new Player(20, 20, 0, "V8 Engine", 0, 0, false);
+        player = new Player(20, 20,  "V6 Engine", 0,  false);
     }
 
     public void setUpGUI()  {

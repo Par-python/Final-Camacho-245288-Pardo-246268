@@ -5,17 +5,15 @@ public class Player {
     private int speed;
     private String engineType;
     private int dTime;
-    private double bSpeed;
     private boolean TireType;
     private int gear;
 
-    public Player(int x, int y, int speed, String engineType, int dTime, double bSpeed,boolean TireType){
+    public Player(int x, int y, String engineType, int dTime, boolean TireType){
         this.x = x;
         this.y = y;
         this.speed = 0;
         this.engineType = engineType;
         this.dTime = dTime;
-        this.bSpeed = bSpeed;
         this.TireType = TireType;
         this.gear = 1; // it is always on gear one lil bro no neutral here
     }
@@ -27,7 +25,7 @@ public class Player {
             int counter = 1;
             if (counter == 10){
                 counter = 1;
-            } else {
+            } else {  
                 this.speed+=1 * counter;
             }
         }
