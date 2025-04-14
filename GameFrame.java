@@ -32,7 +32,7 @@ public class GameFrame {
         AbstractAction speedUp = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae){
-               player.addSpeed();
+               player.checkEngine();
                System.out.println(player.getSpeed());
             }
         };

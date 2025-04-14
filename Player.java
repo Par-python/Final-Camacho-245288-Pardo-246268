@@ -18,35 +18,37 @@ public class Player {
         this.gear = 1; // it is always on gear one lil bro no neutral here
     }
 
-    public void addSpeed(){
+    public void checkEngine(){
         //initializes the engines
         if (this.engineType == "V6 Engine" && this.speed <= 250){
-
-            int counter = 1;
-            if (counter == 10){
-                counter = 1;
-            } else {  
-                this.speed+=1 * counter;
-            }
+            addSpeed(1);
         }
 
         if (this.engineType == "V8 Engine" && this.speed <= 270){
-
-            int counter = 2;
-            if (counter == 20){
-                counter = 2;
-            } else {
-                this.speed+=1 * counter;
-            }
+            addSpeed(2);
         }
         
         if (this.engineType == "V10 Engine" && this.speed <=290){
-            int counter = 3;
-            if (counter == 30){
-                counter = 3;
-            } else {
-                this.speed+=1 * counter;
-            }
+            addSpeed(3);
+        }
+        if (this.engineType == "LeEngine" && this.speed <=400000){
+            addSpeed(4);
+        }
+    }
+
+    public void addSpeed(int engineTypeAmp){
+        if (this.gear == 1 && this.speed < 50){
+            this.speed += 1 * engineTypeAmp;
+        } else if (this.gear == 2 && this.speed < 90) {
+            this.speed += 1 * engineTypeAmp;
+        } else if (this.gear == 3 && this.speed < 130) {
+            this.speed += 1 * engineTypeAmp;
+        }  else if (this.gear == 4 && this.speed < 170) {
+            this.speed += 1 * engineTypeAmp;
+        }  else if (this.gear == 5 && this.speed < 200) {
+            this.speed += 1 * engineTypeAmp;
+        }  else if (this.gear == 6 && this.speed < 290) {
+            this.speed += 1 * engineTypeAmp;
         }
     }
 
